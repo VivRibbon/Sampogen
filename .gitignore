@@ -5,3 +5,7 @@
 /archive/test.py
 /iteratortest.py
 /sampogen.py
+__pycache__
+generators/__pycache__
+archive/__pycache__
+.gitignore
