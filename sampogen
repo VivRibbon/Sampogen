@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+from archive.names import *
+from generators.namegen import *
+from namegen_helper import namegen_helper
+import argparse
+
+
+def main():
+    print("Generating name lists...")
+    first_names, surnames = name_collector(int(args.raws))
+    print("Stitching names...")
+    names = name_stitcher(first_names, surnames, int(args.names))
+    print("\n".join(sorted(names)))
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        prog="sampogen",
+        description="A simple but robust procedural name generator, with command line manager app.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument(
+        "-r",
+        "--raws",
+        default=100,
+        help="Amount of first names and surnames to generate, which will be drawn from to create the full names.",
+    )
+    parser.add_argument(
+        "-n",
+        "--names",
+        default=10,
+        help="Amount of full names to create using the raw lists.",
+    )
+    parser.add_argument(
+        "-m",
+        "--manager",
+        default=False,
+        action="store_true",
+        help="Run the manager tool, allowing you to edit the structures and sets.",
+    )
+    args = parser.parse_args()
+    if args.manager:
+        namegen_helper()
+    else:
+        main()

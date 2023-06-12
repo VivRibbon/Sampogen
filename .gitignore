@@ -1,0 +1,7 @@
+*.org
+/nohup.out
+*.txt
+/archive/namesbak.py
+/archive/test.py
+/iteratortest.py
+/sampogen.py
