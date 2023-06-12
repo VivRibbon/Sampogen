@@ -12,6 +12,7 @@ Ensure you have Python installed and then just clone the repository:
 ``` sh
 git clone https://github.com/VivRibbon/Sampogen
 ```
+You can also download a zip or tarball of the code from the releases. It should work on any system with Python installed but is currently only tested in Linux, so let me know if there are any issues.
 
 Optionally, install yapf, which will automatically format the source dictionary to be more human-readable after you make changes to it:
 
