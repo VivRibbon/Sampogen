@@ -24,6 +24,7 @@ except SyntaxError:
 
 
 def main():
+    """Call name_collector, return two lists, then input them to name_stitcher to return the final names."""
     print("Generating name lists...")
     try:
         first_names, surnames = name_collector(abs(int(args.raws)))
@@ -40,6 +41,7 @@ def main():
 
 
 if __name__ == "__main__":
+    # Sets up command line arguments and documentation.
     parser = argparse.ArgumentParser(
         prog="sampogen",
         description="A simple but robust procedural name generator, with command line manager app.",

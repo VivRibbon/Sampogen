@@ -1,6 +1,5 @@
 # Sampogen
-Roguelike-style procedural name generator with easy customization interface.
-by Moira Oona Campbell
+Roguelike-style procedural name generator with easy customization interface by Moira Oona Campbell
 
 ## What's this?
 Sampogen is a simple program for generating names a la a roguelike, working from defined structures and sets of phonemes, allowing simple definition of phonotactics. It originated from a roguelike project I'm conceptualizing, itself inspired by my reading of the Kalevala, hence the name.
@@ -14,10 +13,19 @@ Ensure you have Python installed and then just clone the repository:
 git clone https://github.com/VivRibbon/Sampogen
 ```
 
+Optionally, install yapf, which will automatically format the source dictionary to be more human-readable after you make changes to it:
+
+``` sh
+pip install yapf
+```
+
 ## Usage
 
-Move into the cloned directory and run the sampogen file:
+Move into the cloned directory and either run the sampogen file with Python or make it executable and then run it:
 ``` sh
+python sampogen
+or:
+chmod +x sampogen
 ./sampogen
 ```
 
@@ -44,5 +52,5 @@ At run time, the namegen function randomly chooses a structure and then follows 
 
 The functioning of the manager itself should be fairly self-explanatory, but it's worth noting that your changes will not be saved unless you choose the save option from the manager's main menu. Quitting without saving will result in your changes being lost. If anything ever gets really messed up, use the "restore default dict" menu option to restore the original state of the generator.
 
-## license
+## License
 MIT license. Attribution appreciated but not legally required. Have fun.

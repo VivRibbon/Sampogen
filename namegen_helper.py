@@ -7,7 +7,7 @@ import os
 import shutil
 import sys
 
-# Checks if the user has YAPF installed. If so, it will be used to format the save dict.
+# Checks if the user has YAPF installed. If so, it will be used to format the saved dict.
 try:
     from yapf.yapflib.yapf_api import FormatFile
 except ImportError:
@@ -17,7 +17,7 @@ else:
 
 
 def namegen_helper():
-    """Main function."""
+    """Manager router. Allows you to save, restore, view, and quit as well as move into the two specific managers."""
     while True:
         print(
             """What script would you like to run?

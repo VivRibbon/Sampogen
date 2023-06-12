@@ -8,4 +8,4 @@
 __pycache__
 generators/__pycache__
 archive/__pycache__
-.gitignore
+iterate_namegen.py
