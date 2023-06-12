@@ -54,8 +54,8 @@ def name_stitcher(first_names, surnames, count):
     i = 1
 
     while i <= count:
-        rand_first = random.randrange(1, len(first_names))
-        rand_sur = random.randrange(1, len(surnames))
+        rand_first = random.randrange(0, len(first_names))
+        rand_sur = random.randrange(0, len(surnames))
         name = [first_names[rand_first], surnames[rand_sur]]
         names.append(" ".join(name))
         name = []

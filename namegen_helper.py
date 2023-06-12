@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """Dispatch point for the helper scripts."""
 from dict_managers import *
-import archive.names
 from archive.names import names_dict
-import importlib
 from pathlib import Path
 import os
 import shutil
+import sys
 
 # Checks if the user has YAPF installed. If so, it will be used to format the save dict.
 try:
@@ -31,7 +30,7 @@ def namegen_helper():
         )
         match input():
             case "6":
-                exit(0)
+                sys.exit(0)
             case "1":
                 print("Structures:")
                 for x in names_dict["structures"]:
@@ -46,9 +45,9 @@ def namegen_helper():
             case "4":
                 path = Path("__file__").parent / Path("archive/names.py")
                 with open(path, mode="w") as file:
-                    file.write("names_dict = " + str(names_dict))
-                if yapf_installed == True:
-                    FormatFile(path, in_place=True)
+                    file.write(f"names_dict = {str(names_dict)}")
+                    if yapf_installed == True:
+                        FormatFile(path, in_place=True)
                 print("Save complete!")
             case "5":
                 match input("Restore default dict?\n").lower():
@@ -59,6 +58,8 @@ def namegen_helper():
                         )
                         os.replace(defaultpath, namespath)
                         shutil.copyfile(namespath, defaultpath)
+                        print("Restored!")
+                        sys.exit(0)
                     case "n" | "no":
                         print("Okay!")
                         continue

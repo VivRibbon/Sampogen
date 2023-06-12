@@ -89,17 +89,17 @@ def structure_manager():
                 for x in names_dict["structures"]:
                     print(str(names_dict["structures"].index(x) + 1) + f". {x}")
             case "2":
-                next_key = str(len(names_dict["sets"]) + 1)
+                next_key = str(len(names_dict["structures"]) + 1)
                 while True:
                     new_struct = input(
-                        f"Please type the format of structure {next_key}, with each item separated by a space (see the readme for instructions:\n)"
+                        f"Please type the format of structure {next_key}, with each item separated by a space (see the readme for instructions):\n"
                     ).split()
                     new_struct = list(filter(None, [x.strip() for x in new_struct]))
                     if new_struct == []:
                         print("Please enter a structure!")
                         continue
                     break
-                names_dict["sets"].append(new_struct)
+                names_dict["structures"].append(new_struct)
                 print(f"Structure {next_key} added with the structure {new_struct}.")
             case "3":
                 edit_struct = (
