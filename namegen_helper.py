@@ -5,6 +5,8 @@ import archive.names
 from archive.names import names_dict
 import importlib
 from pathlib import Path
+import os
+import shutil
 
 # Checks if the user has YAPF installed. If so, it will be used to format the save dict.
 try:
@@ -24,10 +26,11 @@ def namegen_helper():
     [2] Set Manager
     [3] Structure Manager
     [4] Save all changes
-    [5] Quit (Does Not Save)"""
+    [5] Restore default dict
+    [6] Quit (does not save)"""
         )
         match input():
-            case "5":
+            case "6":
                 exit(0)
             case "1":
                 print("Structures:")
@@ -47,6 +50,18 @@ def namegen_helper():
                 if yapf_installed == True:
                     FormatFile(path, in_place=True)
                 print("Save complete!")
+            case "5":
+                match input("Restore default dict?\n").lower():
+                    case "y" | "yes":
+                        namespath = Path("__file__").parent / Path("archive/names.py")
+                        defaultpath = Path("__file__").parent / Path(
+                            "archive/defaultnames.py"
+                        )
+                        os.replace(defaultpath, namespath)
+                        shutil.copyfile(namespath, defaultpath)
+                    case "n" | "no":
+                        print("Okay!")
+                        continue
             case _:
                 print("Please select a valid menu option.")
 

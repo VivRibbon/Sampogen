@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import random
 from archive.test import *
+import sys
 
 NAMES_DICT = names_dict
 STRUCT_KEY = "structures"
@@ -35,12 +36,15 @@ def name_collector(count):
         name = namegen().capitalize()
         if name not in first_names:
             first_names.append(name)
-
+            sys.stdout.write(str(len(first_names)) + " first names generated.\r")
+    print("\n")
     while len(surnames) < count:
         name = namegen().capitalize()
         if name not in first_names and name not in surnames:
             surnames.append(name)
+            sys.stdout.write(str(len(surnames)) + " surnames generated.\r")
 
+    print("\n")
     return (first_names, surnames)
 
 
@@ -56,5 +60,7 @@ def name_stitcher(first_names, surnames, count):
         names.append(" ".join(name))
         name = []
         i += 1
+        sys.stdout.write("\r" + str(len(names)) + " names stitched.")
 
+    print("\n")
     return names
